@@ -3,7 +3,7 @@ import { Style, StyleProps } from "@/components/style";
 import { type Url } from "next/dist/shared/lib/router/router";
 import { color, Color } from "@/types";
 import { CSSObject } from "@emotion/react";
-import { useRouter } from "next/router";
+import { basePath } from "@/lib/basePath";
 
 
 // Link types
@@ -27,8 +27,6 @@ export const LinkA = ({
   disabled,
   ...rest
 }: LinkAProps) => {
-
-   const { basePath } = useRouter();
 
   const linkAStyle: CSSObject = {
     color: color[colors[0]],
