@@ -31,7 +31,7 @@ jobs:
       - name: Build with environment variables
         env:
           NEXT_PUBLIC_SUPABASE_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_KEY }}
-        run: npm run build && npm run export
+        run: npm run build  # Это создаст папку out со статикой
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
