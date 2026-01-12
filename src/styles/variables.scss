@@ -1,0 +1,103 @@
+@use 'sass:list';
+
+// Colors
+// -- Gray
+$gray1: #f5f5f5;
+$gray2: #b8b8b8;
+$gray3: #7a7a7a;
+$gray4: #3d3d3d;
+$gray5: #000000;
+
+// -- Accent
+$accent1: #caabe0;
+$accent2: #ba59ff;
+$accent3: #9500ff;
+$accent4: #6100a6;
+$accent5: #24003d;
+
+// -- Status
+$info: #3d7eff;
+$error: #ff3d3d;
+$warning: #ffbe3d;
+$success: #3dff7e;
+
+$color: (
+  "gray1": $gray1,
+  "gray2": $gray2,
+  "gray3": $gray3,
+  "gray4": $gray4,
+  "gray5": $gray5,
+  "accent1": $accent1,
+  "accent2": $accent2,
+  "accent3": $accent3,
+  "accent4": $accent4,
+  "accent5": $accent5,
+  "info": $info,
+  "error": $error,
+  "warning": $warning,
+  "success": $success
+);
+
+// Numbers
+$rem: 0.0625rem;
+
+
+// Typography
+@mixin typography($value) {
+  $family: list.nth($value, 1);
+  $size: list.nth($value, 2);
+  $weight: list.nth($value, 3);
+  font-family: var(--font-#{$family});
+  font-size: calc($size * $rem);
+  font-weight: $weight;
+  line-height: 100%;
+}
+// -- Heading
+$heading: (
+  "heading1": ("heading", 96, 900),
+  "heading2": ("heading", 64, 800),
+  "heading3": ("heading", 48, 700),
+  "heading4": ("heading", 40, 600),
+);
+@each $name, $value in $heading {
+	.#{$name} {
+    @include typography($value);
+	}
+}
+
+// -- Body
+$body: (
+  "body1": ("body", 40, 500),
+  "body2": ("body", 36, 500),
+  "body3": ("body", 32, 400),
+  "body4": ("body", 24, 400),
+);
+@each $name, $value in $body {
+	.#{$name} {
+    @include typography($value);
+    font-kerning: -5%;
+	}
+}
+
+// -- Mono
+$mono: (
+  "mono1": ("mono", 24, 600),
+  "mono2": ("mono", 20, 600),
+  "mono3": ("mono", 16, 600),
+  "mono4": ("mono", 12, 600),
+);
+@each $name, $value in $mono {
+	.#{$name} {
+    @include typography($value);
+	}
+}
+
+
+// CSS Variables
+:root {
+  font-size: 16px;
+
+  @each $name, $value in $color {
+    --color-#{$name}: #{$value};
+  }
+}

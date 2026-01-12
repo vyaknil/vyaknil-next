@@ -1,0 +1,39 @@
+@use "./variables.scss" as *;
+
+// Reset
+*, 
+*::after,
+*::before {
+  margin: 0;
+  margin-inline: 0;
+  margin-block: 0;
+  padding: 0;
+  position: relative;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+  transition: all .333s ease-in-out;
+  box-sizing: border-box;
+  list-style: none;
+  font: inherit;
+}
+
+
+// Default styles
+body {
+  background-color: $gray5;
+  color: $gray1;
+}
+
+section {
+  width: 100%;
+}
+
+// Color styles
+@each $name, $value in $color {
+  .bg-#{$name} { background-color: #{$value}; }
+  .color-#{$name} { color: #{$value}; }
+  .border-#{$name} { border-color: #{$value}; }
+  .outline-#{$name} { outline-color: #{$value}; }
+}
