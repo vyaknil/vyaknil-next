@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   output: 'export',
   distDir: 'out',
+  basePath: '/vyaknil-next',
+  assetPrefix: '/vyaknil-next/', 
 };
 
 export default nextConfig;

@@ -3,6 +3,8 @@ import { Style, StyleProps } from "@/components/style";
 import { type Url } from "next/dist/shared/lib/router/router";
 import { color, Color } from "@/types";
 import { CSSObject } from "@emotion/react";
+import { useRouter } from "next/router";
+
 
 // Link types
 type Target = "_blank"|"_self"|"_top";
@@ -26,6 +28,8 @@ export const LinkA = ({
   ...rest
 }: LinkAProps) => {
 
+   const { basePath } = useRouter();
+
   const linkAStyle: CSSObject = {
     color: color[colors[0]],
     cursor: "pointer",
@@ -44,7 +48,7 @@ export const LinkA = ({
         {...rest}
       >
         <Link 
-          href={href} 
+          href={`${basePath}${href}`} 
           target={target}
         >
           {children}
