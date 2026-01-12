@@ -3,7 +3,6 @@ import { Style, StyleProps } from "@/components/style";
 import { type Url } from "next/dist/shared/lib/router/router";
 import { color, Color } from "@/types";
 import { CSSObject } from "@emotion/react";
-import { basePath } from "@/lib/basePath";
 
 
 // Link types
@@ -46,7 +45,7 @@ export const LinkA = ({
         {...rest}
       >
         <Link 
-          href={`${basePath}${href}`} 
+          href={href} 
           target={target}
         >
           {children}
