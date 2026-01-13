@@ -59,7 +59,8 @@ export const InputText = ({
     width: width,
     height: height,
     position: "absolute",
-    background: "none"
+    background: "none",
+    transform: "translateY(-6px)"
   }
 
   return (
