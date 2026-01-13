@@ -50,7 +50,7 @@ section {
 @for $i from 3 through 24 {
   $j: $i * 4;
   .font-#{$j} {
-    font-size: calc(#{$i} * 0.25rem);
+    font-size: #{$i * 0.25}rem;
   }
 }
 @for $i from 4 through 9 {
@@ -82,6 +82,13 @@ $typography: (
   @each $level, $values in $levels {
     $size: nth($values, 1);
     $weight: nth($values, 2);
+    
+    @if not selector-exists(".font-#{$size}") {
+      @error "Font size utility .font-#{$size} not found";
+    }
+    @if not selector-exists(".font-#{$weight}") {
+      @error "Font weight utility .font-#{$weight} not found";
+    }
     
     .#{$section}#{$level} {
       @extend .#{$section}, .font-#{$size}, .font-#{$weight}
