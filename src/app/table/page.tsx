@@ -87,14 +87,12 @@ export default function Page() {
   );
 
   const SearchBar = (
-    <Flex direction="column" gap={16} width="100%">
-      <InputText
+    <InputText
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         className="body4 color-gray5"
         style={{ width: "100%" }}
       >Search by name...</InputText>
-    </Flex>
   );
 
   const PaginationControls = (

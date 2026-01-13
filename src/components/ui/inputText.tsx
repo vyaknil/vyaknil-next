@@ -7,13 +7,15 @@ export interface InputTextProps extends StyleProps {
   width?: string,
   value?: string,
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
-  pattern?: string
+  pattern?: string,
+  height?: string
 }
 
 export const InputText = ({
   children,
   vyakStyle,
   width = "8rem",
+  height = "2.25rem",
   value,
   pattern,
   onChange,
@@ -29,6 +31,7 @@ export const InputText = ({
 
   const inputTextStyle: CSSObject = {
     width: width,
+    height: height,
     backgroundColor: color.gray1,
     color: color.gray5,
     cursor: "text",
@@ -54,6 +57,7 @@ export const InputText = ({
 
   const inputStyle: CSSObject = {
     width: width,
+    height: height,
     position: "absolute",
     background: "none"
   }
