@@ -91,7 +91,7 @@ export default function Page() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         className="body4 color-gray5"
-        style={{ width: "100%" }}
+        width="100%"
       >Search by name...</InputText>
   );
 
