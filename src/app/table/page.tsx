@@ -91,7 +91,7 @@ export default function Page() {
       <InputText
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className="mono1 color-gray5"
+        className="body4 color-gray5"
         style={{ width: "100%" }}
       >Search by name...</InputText>
     </Flex>
@@ -101,19 +101,19 @@ export default function Page() {
     <Flex align="center" justify="center" gap={8} width="100%">
       <LinkA
         onClick={() => handlePageChange(currentPage - 1)}
-        className="mono1"
+        className="body4"
         disabled={currentPage === 1}
       >
         &lt;
       </LinkA>
       
-      <Flex align="center" className="mono1 color-gray1">
+      <Flex align="center" className="body4 color-gray1">
         {currentPage}/{totalPages || 1}
       </Flex>
       
       <LinkA
         onClick={() => handlePageChange(currentPage + 1)}
-        className="mono1"
+        className="body4"
         disabled={currentPage === totalPages || totalPages === 0}
       >
         &gt;
@@ -125,7 +125,7 @@ export default function Page() {
     return (
       <Flex as="section" direction="column" gap={32} padding={[32]}>
         <p className="body1 color-error">Error loading data: {error.message}</p>
-        <LinkA onClick={() => window.location.reload()} className="mono1">
+        <LinkA onClick={() => window.location.reload()} className="body4">
           Try again
         </LinkA>
       </Flex>
@@ -151,7 +151,7 @@ export default function Page() {
               gap={1}
               key={item.id}
               vyakStyle={{ width: "100%" }}
-              className="mono1 color-gray5"
+              className="body4 color-gray5"
             >
               <Flex
                 padding={[4]}

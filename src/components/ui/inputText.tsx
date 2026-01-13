@@ -21,7 +21,7 @@ export const InputText = ({
 }: InputTextProps) => {
 
   const spanStyle: CSSObject = {
-    fontFamily: `var(--font-mono)`,
+    fontFamily: `var(--font-body)`,
     fontSize: `calc(${rem} * 16)`,
     fontWeight: 500,
     transform: `translateY(-28px) translateX(-8px)`

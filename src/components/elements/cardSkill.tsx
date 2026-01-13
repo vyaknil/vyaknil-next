@@ -21,7 +21,7 @@ export const CardSkill = ({
       padding={[20]} 
       radius={[6]} 
       gap={16}
-      className={`${className} bg-gray4 mono1`}
+      className={`${className} bg-gray4 body4`}
       {...rest}
     >
       <Flex gap={12} className="heading3">

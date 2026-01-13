@@ -1,58 +1,25 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "@/styles/globals.scss";
 import { Providers } from "./providers";
 import { SvgSprite } from "@/components/svgSprite";
 import { Footer, Header } from "@/components/elements";
 import { Flex } from "@/components/ui";
 import { mapRem, rem } from "@/types";
+import { Montserrat_Alternates, Ubuntu_Sans_Mono } from "next/font/google"
 
 // fonts
-const Heading = localFont({
-  src: [
-    {
-      path: "../assets/fonts/heading/zed-sans-heavy.ttf",
-      weight: "900",
-    },
-    {
-      path: "../assets/fonts/heading/zed-sans-extrabold.ttf",
-      weight: "800",
-    },
-    {
-      path: "../assets/fonts/heading/zed-sans-bold.ttf",
-      weight: "700",
-    },
-    {
-      path: "../assets/fonts/heading/zed-sans-semibold.ttf",
-      weight: "600",
-    },
-  ],
+const Heading = Montserrat_Alternates({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   variable: "--font-heading",
 });
 
-const Body = localFont({
-  src: [
-    {
-      path: "../assets/fonts/body/zed-sans-extendedmedium.ttf",
-      weight: "500",
-    },
-    {
-      path: "../assets/fonts/body/zed-sans-extended.ttf",
-      weight: "400",
-    },
-  ],
+const Body = Ubuntu_Sans_Mono({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-body",
 });
 
-const Mono = localFont({
-  src: [
-    {
-      path: "../assets/fonts/mono/zed-mono-extendedsemibold.ttf",
-      weight: "600",
-    },
-  ],
-  variable: "--font-mono",
-});
 
 // metadata
 export const metadata: Metadata = {
@@ -68,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${Heading.variable} ${Body.variable} ${Mono.variable}`}>
+      <body className={`${Heading.variable} ${Body.variable}`}>
         <SvgSprite />
         <Providers>
           <Header />
