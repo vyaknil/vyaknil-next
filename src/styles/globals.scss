@@ -80,8 +80,8 @@ $typography: (
 
 @each $section, $levels in $typography {
   @each $level, $values in $levels {
-    $size: nth($values, 1);
-    $weight: nth($values, 2);
+    $size: list.nth($values, 1);
+    $weight: list.nth($values, 2);
     
     @if not selector-exists(".font-#{$size}") {
       @error "Font size utility .font-#{$size} not found";

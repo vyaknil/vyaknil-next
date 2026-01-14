@@ -98,3 +98,46 @@ export const skills: {
     description: "A Vue-based framework that simplifies SSR and static site generation."
   }
 ];
+
+export const pcComponents: {
+  name: string,
+  icon: Icons,
+  description: string
+}[] = [
+  {
+    name: "CPU",
+    icon: "mdi--cpu-64-bit",
+    description: "Intel Core i5-3470"
+  },
+  {
+    name: "GPU",
+    icon: "mdi--gpu",
+    description: "KFA2 GTX 1650 4GB GDDR6"
+  },
+  {
+    name: "Motherboard",
+    icon: "material-symbols--developer-board-rounded",
+    description: "ASUS P8H77-M LE"
+  },
+  {
+    name: "RAM",
+    icon: "material-symbols--memory-rounded",
+    description: "Samsung DDR3 4+4 GB"
+  },
+  {
+    name: "Disks",
+    icon: "mdi--harddisk",
+    description: `HDD Seagate 80GB
+                  HDD Seagate 256GB`
+  },
+  {
+    name: "Microphone",
+    icon: "material-symbols--mic-rounded",
+    description: "Fifine Ampligame A6"
+  },
+  {
+    name: "Camera",
+    icon: "material-symbols--photo-camera-rounded",
+    description: "Fifine K420"
+  }
+];

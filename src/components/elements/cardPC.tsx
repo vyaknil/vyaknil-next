@@ -2,29 +2,29 @@ import { Icons } from "@/types";
 import { StyleProps } from "@/components/style";
 import { Flex, Icon } from "@/components/ui";
 
-export interface CardSkillProps extends StyleProps {
+export interface CardPCProps extends StyleProps {
   name: string,
   icon: Icons
 }
 
-export const CardSkill = ({
+export const CardPC = ({
   children,
   name,
   icon,
   vyakStyle,
   className,
   ...rest
-}: CardSkillProps) => {
+}: CardPCProps) => {
   return (
     <Flex 
       direction="column" 
-      padding={[20]} 
+      padding={[16]} 
       radius={[6]} 
       gap={16}
       className={`${className} bg-gray4 body4`}
       {...rest}
     >
-      <Flex gap={12} className="heading3 color-accent1">
+      <Flex gap={12} className="heading4 color-accent1">
         <Icon name={icon}/>{name}
       </Flex>
       {children}

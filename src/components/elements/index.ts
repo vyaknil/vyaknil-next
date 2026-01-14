@@ -1,4 +1,5 @@
 export { Header } from "./header";
 export { Footer } from "./footer";
 export { CardSkill, type CardSkillProps } from "./cardSkill";
-export { CardLink, type CardLinkProps } from "./cardLink"
+export { CardLink, type CardLinkProps } from "./cardLink";
+export { CardPC, type CardPCProps } from "./cardPC";
