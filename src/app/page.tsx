@@ -5,10 +5,8 @@ export default async function Home() {
   let dbTime = "";
 
   try {
-    // Инициализируем соединение (Vercel возьмет DATABASE_URL из своих настроек)
     const sql = neon(process.env.DATABASE_URL!);
 
-    // Делаем тестовый запрос: получаем текущее время из БД
     const result = await sql`SELECT NOW(), version()`;
 
     dbStatus = "✅ Соединение с Neon установлено!";
