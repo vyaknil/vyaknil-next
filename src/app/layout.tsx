@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-
+import React from 'react'
+import { VRegistry } from 'vyakui-react';
+import { fontBody, fontHeading } from '@/fonts';
+import "vyakui-react/global.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,8 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={``}>
+      <body className={`${fontHeading.variable} ${fontBody.variable}`} style={{backgroundColor: "rgba(0, 0, 0, 1)"}}>
+      <VRegistry>
         {children}
+      </VRegistry>
       </body>
     </html>
   );
