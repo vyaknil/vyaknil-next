@@ -1,4 +1,6 @@
-import { font, color, getFont, VFlex } from '@/vyakui-react'
+import { CardSkill } from '@/components/cardSkill'
+import { skills } from '@/staticData'
+import { font, color, getFont, VFlex, VMasonry } from '@/vyakui-react'
 
 
 const sectionHello =
@@ -14,8 +16,33 @@ const sectionHello =
     </div>
   </VFlex>;
 
+const sectionSkills =
+  <VFlex
+    as={"section"}
+    direction={"column"}
+    gap={32}
+  >
+    <span style={getFont(font.heading1)}>Skills</span>
+    <VMasonry
+      vStyle={{
+        width: "100%"
+      }}
+      gap={20}
+      columns={{
+        default: 1,
+        sm: 2,
+        lg: 3
+      }}
+    >
+      {skills.map(s => {return(
+        <CardSkill key={s.name} link={s.link} name={s.name} icon={s.icon}>{s.description}</CardSkill>
+      )})}
+    </VMasonry>
+  </VFlex>;
+
 export default function Page() {
   return (<>
     {sectionHello}
+    {sectionSkills}
   </>);
 }

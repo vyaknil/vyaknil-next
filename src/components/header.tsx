@@ -8,8 +8,8 @@ import React from 'react'
 
 export const backStyle: VStyle = {
   border:          `1px solid ${color.gray4}`,
-  backdropFilter:  "blur(2px)",
-  backgroundColor: "rgba(0, 0, 0, .4)"
+  backdropFilter:  "blur(3px)",
+  backgroundColor: "rgba(0, 0, 0, .8)"
 }
 
 export const CustomVLink = ({children, onClick}: BaseStyledProps<any>) => {
