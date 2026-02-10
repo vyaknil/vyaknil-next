@@ -23,6 +23,7 @@ export default function RootLayout({
         <VFlex
           gap={64}
           as={"main"}
+          direction={"column"}
           vStyle={{
             ...sizeStyle,
             marginTop: getRem(80)

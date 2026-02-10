@@ -3,15 +3,13 @@ import { links, pages } from '@/staticData'
 import { color, getRem, size, VFlex, VLink, VStyle } from '@/vyakui-react'
 import { Icon } from '@iconify/react'
 
+const sizeStyle: VStyle = {
+  [`@media screen and (min-width: ${size.xs}px)`]: {
+    justifyContent: "space-between"
+  }
+}
 
 export const Footer = () => {
-
-  const sizeStyle: VStyle = {
-    [`@media screen and (min-width: ${size.xs}px)`]: {
-      justifyContent: "space-between"
-    }
-  }
-
   return (
     <VFlex
       as={"footer"}
