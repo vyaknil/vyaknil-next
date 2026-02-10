@@ -8,7 +8,7 @@ import React from 'react'
 
 export const backStyle: VStyle = {
   border:          `1px solid ${color.gray4}`,
-  backdropFilter:  "blur(1px)",
+  backdropFilter:  "blur(2px)",
   backgroundColor: "rgba(0, 0, 0, .4)"
 }
 
