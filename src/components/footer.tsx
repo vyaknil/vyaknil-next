@@ -21,7 +21,8 @@ export const Footer = () => {
       justify={"center"}
       vStyle={{
         backgroundColor: color.gray5,
-        border: `1px solid ${color.gray4}`,
+        outline: `1px solid ${color.gray4}`,
+        outlineOffset: "-1px",
         width: "100%",
         ...sizeStyle
       }}

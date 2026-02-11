@@ -24,3 +24,6 @@ export const sizeStyle: VStyle = {
 
 export * from "./header";
 export * from "./footer";
+export * from "./cardSkill";
+export * from "./cardLink";
+

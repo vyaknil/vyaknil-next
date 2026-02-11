@@ -1,4 +1,4 @@
-import { CardSkill } from '@/components/cardSkill'
+import { CardSkill } from '@/components'
 import { skills } from '@/staticData'
 import { font, color, getFont, VFlex, VMasonry } from '@/vyakui-react'
 
@@ -9,7 +9,7 @@ const sectionHello =
     direction={"column"}
     gap={8}
   >
-    <span style={getFont(font.heading1)}>Hello!</span>
+    <h1 style={getFont(font.heading1)}>Hello!</h1>
     <div style={getFont(font.body5)}>
       <p>I'm Vyaknil <span style={{...getFont(font.body6), color: color.gray2}}>(Daniel Vyakulin)</span></p>
       <p>Web-designer/developer. Also I stream games on Twitch and YouTube.</p>
@@ -21,8 +21,9 @@ const sectionSkills =
     as={"section"}
     direction={"column"}
     gap={32}
+    vStyle={{marginBottom: "-20px"}}
   >
-    <span style={getFont(font.heading1)}>Skills</span>
+    <h1 style={getFont(font.heading1)}>Skills</h1>
     <VMasonry
       vStyle={{
         width: "100%"

@@ -37,7 +37,7 @@ export const HeaderMenu = () => {
     >
       <h1
         style={{
-          ...getFont(font.body4),
+          ...getFont(font.body3),
           color: color.gray1
         }}
       >Pages</h1>
@@ -48,7 +48,7 @@ export const HeaderMenu = () => {
       >
         {pages.map(p => {
           return (
-            <li key={p.name}><VLink href={p.link}>{p.name}</VLink></li>
+            <li key={p.name}><VLink size={"xs"} href={p.link}>{p.name}</VLink></li>
           )
         })}
       </VFlex>

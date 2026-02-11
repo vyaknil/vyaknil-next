@@ -7,7 +7,8 @@ import React from 'react'
 
 
 export const backStyle: VStyle = {
-  border:          `1px solid ${color.gray4}`,
+  outline:         `1px solid ${color.gray4}`,
+  outlineOffset:   "-1px",
   backdropFilter:  "blur(3px)",
   backgroundColor: "rgba(0, 0, 0, .8)"
 }
@@ -45,12 +46,12 @@ export const Header = () => {
       <HeaderMenu/>
       <VLink
         size={"sm"}
+        variant={"background"}
         href={"/"}
+        colorText={["gray1", "gray4"]}
         vStyle={{
           ...backStyle,
-          borderRadius:   getRem(6),
-          width:          "100%",
-          height:         getRem(36),
+          width: "100%",
           justifyContent: "center"
         }}
       >

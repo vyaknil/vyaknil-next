@@ -29,8 +29,9 @@ export const CardSkill = ({
       vStyle={{
         transitionDuration:       transitionDuration,
         transitionTimingFunction: transitionFunction,
-        transitionProperty:       "border-color, box-shadow",
-        border:                   `1px solid ${color.gray4}`,
+        transitionProperty:       "outline-color, box-shadow",
+        outline:                   `1px solid ${color.gray4}`,
+        outlineOffset: "-1px",
         backgroundColor:          color.gray5,
         "& .skillName":         {
           transitionDuration:       transitionDuration,
@@ -38,7 +39,7 @@ export const CardSkill = ({
           transitionProperty:       "color"
         },
         "&:hover":                {
-          borderColor:      color.accent3,
+          outlineColor:      color.accent3,
           boxShadow:        `inset 0 0 16px ${color.accent3}`,
         },
         "&:hover .skillName": {
