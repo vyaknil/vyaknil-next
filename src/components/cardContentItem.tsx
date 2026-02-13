@@ -2,7 +2,7 @@
 
 import { contentTableDelete, contentTableUpdate } from '@/database/methods'
 import { AllowedTables, Content, ContentStatus } from '@/database/types'
-import { color, Color, font, getFont, getRem, Styled, transitionDuration, transitionFunction, VButton, VFlex, VLink, VStyle } from '@/vyakui-react'
+import { color, Color, font, getFont, getRem, Styled, VButton, VFlex, VLink, VStyle } from '@/vyakui-react'
 import { Icon } from '@iconify/react'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
@@ -144,7 +144,7 @@ export const CardContentItem = ({
            <Icon icon={"mdi:pencil"} className={"icon"}/>
          </VButton>
          <VButton
-           onClick={(e) => {
+           onClick={() => {
              handleDelete();
            }}
            colorText={["gray1", "error"]}
