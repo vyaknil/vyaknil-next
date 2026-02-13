@@ -1,7 +1,7 @@
+import { HeaderLogin } from '@/components/headerLogin'
 import { HeaderMenu } from '@/components/headerMenu'
 import { sizeStyle } from '@/components/index'
 import { Logo } from '@/logo'
-import { Icon } from '@iconify/react'
 import { BaseStyledProps, color, getRem, VFlex, VLink, VStyle } from '@/vyakui-react';
 import React from 'react'
 
@@ -57,7 +57,7 @@ export const Header = () => {
       >
         <Logo/>vyaknil
       </VLink>
-      <CustomVLink><Icon icon={"mdi:account"} className={"icon"}/></CustomVLink>
+      <HeaderLogin/>
     </VFlex>
   );
 }

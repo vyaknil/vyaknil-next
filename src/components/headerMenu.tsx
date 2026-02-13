@@ -2,7 +2,7 @@
 
 import { backStyle, CustomVLink } from '@/components/header'
 import { pages } from '@/staticData'
-import { color, font, getFont, getRem, transitionDuration, transitionFunction, VFlex, VLink } from '@/vyakui-react'
+import { color, font, getFont, getRem, Styled, transitionDuration, transitionFunction, VFlex, VLink } from '@/vyakui-react'
 import { Icon } from '@iconify/react'
 import React, { useState } from 'react'
 
@@ -13,7 +13,7 @@ export const HeaderMenu = () => {
   const closedIcon = <Icon icon={"mdi:menu"} className={"icon"}/>;
   const openedIcon = <Icon icon={"mdi:close"} className={"icon"}/>;
 
-  return (<>
+  return (<Styled vStyle={{position: "relative", display: "inline-block"}}>
     <CustomVLink
       onClick={() => setMenuOpen(!isMenuOpen)}
     >{isMenuOpen? openedIcon : closedIcon}</CustomVLink>
@@ -53,5 +53,5 @@ export const HeaderMenu = () => {
         })}
       </VFlex>
     </VFlex>
-  </>);
+  </Styled>);
 }
