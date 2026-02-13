@@ -9,3 +9,6 @@ export interface Content {
   date_start: TableDate;
   date_end: TableDate;
 }
+
+export type AllowedTables = "content_games";
+export const allowedTables = ["content_games"] as const;

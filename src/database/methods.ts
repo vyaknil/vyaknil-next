@@ -1,10 +1,7 @@
 "use server";
 import { sql } from '@/database/db';
-import { Content, ContentStatus, TableDate } from '@/database/types';
+import { allowedTables, AllowedTables, Content, ContentStatus, TableDate } from '@/database/types';
 import { auth } from "@/lib/auth";
-
-type AllowedTables = "content_games";
-const allowedTables = ["content_games"];
 
 async function verifyAdmin() {
   const session = await auth();
@@ -23,8 +20,8 @@ function validateTableName(tableName: string): asserts tableName is AllowedTable
 export async function contentTableSelect(tableName: AllowedTables): Promise<Content[]> {
   validateTableName(tableName);
 
-  const rows = await sql`SELECT * from ${tableName}`;
-  return rows as Content[];
+  const rows = await sql`SELECT * from ${sql.unsafe(tableName)}`;
+  return rows as unknown as Content[];
 }
 
 export async function contentTablePut(tableName: AllowedTables, name: string): Promise<Content> {
@@ -32,10 +29,10 @@ export async function contentTablePut(tableName: AllowedTables, name: string): P
   validateTableName(tableName);
 
   const result = await sql`
-  INSERT INTO ${tableName} (name)
-  VALUES (${name})
-  RETURNING *
-`;
+    INSERT INTO ${sql.unsafe(tableName)} (name)
+    VALUES (${name})
+    RETURNING *
+  `;
   return result[0] as Content;
 }
 
@@ -54,16 +51,16 @@ export async function contentTableUpdate(
   validateTableName(tableName);
 
   const result = await sql`
-  UPDATE ${tableName}
-  SET
-    name = CASE WHEN ${data.name === undefined} THEN name ELSE ${data.name} END,
-    status = CASE WHEN ${data.status === undefined} THEN status ELSE ${data.status} END,
-    link = CASE WHEN ${data.link === undefined} THEN link ELSE ${data.link} END,
-    date_start = CASE WHEN ${data.date_start === undefined} THEN date_start ELSE ${data.date_start} END,
-    date_end = CASE WHEN ${data.date_end === undefined} THEN date_end ELSE ${data.date_end} END
-  WHERE id = ${id}
-  RETURNING *
-`;
+    UPDATE ${sql.unsafe(tableName)}
+    SET
+      name = CASE WHEN ${data.name === undefined} THEN name ELSE ${data.name} END,
+      status = CASE WHEN ${data.status === undefined} THEN status ELSE ${data.status} END,
+      link = CASE WHEN ${data.link === undefined} THEN link ELSE ${data.link} END,
+      date_start = CASE WHEN ${data.date_start === undefined} THEN date_start ELSE ${data.date_start} END,
+      date_end = CASE WHEN ${data.date_end === undefined} THEN date_end ELSE ${data.date_end} END
+    WHERE id = ${id}
+    RETURNING *
+  `;
 
   if (result.length === 0) {
     throw new Error(`Record with id ${id} not found in ${tableName}`);
@@ -75,5 +72,6 @@ export async function contentTableUpdate(
 export async function contentTableDelete(tableName: AllowedTables, id: number) {
   await verifyAdmin();
   validateTableName(tableName);
-  await sql`DELETE FROM ${tableName} WHERE id = ${id}`;
+
+  await sql`DELETE FROM ${sql.unsafe(tableName)} WHERE id = ${id}`;
 }

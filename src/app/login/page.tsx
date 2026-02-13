@@ -11,8 +11,8 @@ export default function LoginPage() {
   );
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
-      <VFlex as={"form"} direction={"column"} justify={"center"} gap={10} action={formAction}>
+    <VFlex as={"section"}>
+      <VFlex as={"form"} direction={"column"} align={"center"} gap={10} action={formAction} vStyle={{width: "100%"}}>
         <h1 style={{...getFont(font.heading1)}}>Вход для админа</h1>
 
         <input name="email" type="email" placeholder="Email" required />
@@ -24,6 +24,6 @@ export default function LoginPage() {
 
         <VButton as={"button"} disabled={isPending} type="submit">{isPending ? "Вход..." : "Войти"}</VButton>
       </VFlex>
-    </div>
+    </VFlex>
   );
 }
