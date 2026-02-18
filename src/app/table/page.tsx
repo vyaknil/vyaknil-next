@@ -68,6 +68,7 @@ export default async function Page({ searchParams }: PageProps) {
             sm:      2,
             lg:      3
           }}
+          vStyle={{width: "100%"}}
           gap={20}
         >
           {tableItems}
