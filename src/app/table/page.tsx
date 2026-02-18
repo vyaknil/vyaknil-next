@@ -1,5 +1,6 @@
 import { CardContentItem, ContentAddButton, TableFilters } from '@/components'
 import { contentTableSelect } from '@/database/methods'
+import { ContentStatus } from '@/database/types'
 import { VFlex, VMasonry } from '@/vyakui-react'
 import { auth } from "@/lib/auth"
 
@@ -24,6 +25,15 @@ export default async function Page({ searchParams }: PageProps) {
   if (status && status !== 'all') {
     games = games.filter(game => game.status === status);
   }
+
+  const statusOrder: ContentStatus[] = ["in-progress", "planned", "completed", "dropped"];
+
+  games.sort((a, b) => {
+    const orderA = statusOrder.indexOf(a.status);
+    const orderB = statusOrder.indexOf(b.status);
+    if (orderA !== orderB) return orderA - orderB;
+    return a.name.localeCompare(b.name);
+  });
 
   const session = await auth();
   const isAdmin = session?.user?.role === "admin";

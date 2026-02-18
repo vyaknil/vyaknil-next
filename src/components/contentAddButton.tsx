@@ -77,17 +77,16 @@ export const ContentAddButton = ({ tableName }: { tableName: AllowedTables }) =>
           >
             <h2 style={{ ...getFont(font.heading5), color: color.gray1 }}>Add New Content</h2>
 
-            <VFlex direction="column" gap={12}>
+            <VFlex direction="column" gap={12} vStyle={{width: "100%"}}>
               <label style={{ ...getFont(font.body4), color: color.gray2 }}>Name *</label>
-              <Styled as="input" style={inputStyle} value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
-
+              <Styled vStyle={{width: "100%"}} as="input" style={inputStyle} value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
             </VFlex>
 
-            <VFlex gap={12} justify="flex-end">
-              <VButton colorText={["gray1", "gray2"]} variant="outline" onClick={() => setIsOpen(false)}>Cancel</VButton>
+            <VFlex justify="space-between" vStyle={{width: "100%"}}>
               <VButton disabled={isSaving} colorBg={["accent1", "accent2"]} onClick={handleCreate}>
                 {isSaving ? "Creating..." : "Create"}
               </VButton>
+              <VButton colorText={["gray1", "gray2"]} variant="outline" onClick={() => setIsOpen(false)}>Cancel</VButton>
             </VFlex>
           </VFlex>
         </Styled>
